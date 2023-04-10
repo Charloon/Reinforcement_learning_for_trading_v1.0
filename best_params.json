@@ -1,0 +1,1 @@
+{"gamma": 0.9586997262693819, "gae_lambda": 0.9875999550727885, "learning_rate": 8.276679494284736e-05, "ent_coef": 7.935955774758703e-08, "n_lstm_layers": 2, "lstm_hidden_size": 256}
