@@ -91,7 +91,7 @@ def export_study_to_csv(study, name = 'study_env.pkl', suffix = "env"):
     - suffix : string to indicate if this is for env or hyperparam
     """
     # save study
-    with open('study.pkl', 'wb') as handle:
+    with open(name, 'wb') as handle:
         pickle.dump(study, handle, protocol=pickle.HIGHEST_PROTOCOL)
     # export study to csv
     with open(name, 'rb') as handle:

@@ -95,7 +95,7 @@ def cross_detection_oscillator(df, rsi):
 def clean_results_folder():
     """ function to empy the folder to store results for each episode"""
     for i in range(1000):
-        myfile = "./results/result_"+str(i)+".csv"
+        myfile = "./tmp/result_"+str(i)+".csv"
         try:
             os.remove(myfile)
         except:

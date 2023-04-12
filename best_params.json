@@ -1,1 +1,1 @@
-{"gamma": 0.9586997262693819, "gae_lambda": 0.9875999550727885, "learning_rate": 8.276679494284736e-05, "ent_coef": 7.935955774758703e-08, "n_lstm_layers": 2, "lstm_hidden_size": 256}
+{"gamma": 0.9012744059205376, "gae_lambda": 0.9052140759388434, "learning_rate": 0.0005473084511302935, "ent_coef": 0.0008163017883419956, "n_lstm_layers": 1, "lstm_hidden_size": 256}

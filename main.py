@@ -27,7 +27,7 @@ if __name__ == '__main__':
     NUM_CPU = 8                     # number of environment to run in parallel
     TOTAL_TIMESTEPS = 30000         # number for time steps for each training 
     ALGO = "RecurrentPPO"           # selected RL algorithm
-    NAME_CSV = "AAPL.csv"           # csv file for price data
+    NAME_ASSET = "AAPL"             # name of the asset
     INFO_KEYWORDS = tuple([])
     LOG_DIR = "tmp/"
     STATS_PATH = os.path.join(LOG_DIR, "vec_normalize.pkl")
@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     ################ create gym environment ################
     # create Account
-    Account = Account(init_cash = 1000.0, name = "APPL", n_asset = 0)
+    Account = Account(init_cash = 1000.0, name = NAME_ASSET, n_asset = 0)
 
     # create metadata
     metadata = Metadata(market = "Crypto",
@@ -56,7 +56,7 @@ if __name__ == '__main__':
             metadata = organise_env_param(json.load(fp), metadata)
 
     # import data from csv
-    df = pd.read_csv('./data/'+NAME_CSV).sort_values('Date')
+    df = pd.read_csv('./data/'+NAME_ASSET+".csv").sort_values('Date')
 
     # get preprocessed data for training and validation
     # preprocess data 
@@ -90,7 +90,9 @@ if __name__ == '__main__':
 
     ################# predict with final model ###################
     if FLAG_PREDICT:
-        #run_predict(df_train, metadata, data_train, ALGO, STATS_PATH, "train")
-        run_predict(df_val, metadata, data_val, ALGO, STATS_PATH, "valid")    
-        #visualize_predict(suffix = "train", tick = Account.name)
+        # predict on training data
+        run_predict(df_train, metadata, data_train, ALGO, STATS_PATH, "train")    
+        visualize_predict(suffix = "train", tick = Account.name)
+        # predict on training data
+        run_predict(df_val, metadata, data_val, ALGO, STATS_PATH, "valid")
         visualize_predict(suffix = "valid", tick = Account.name)   

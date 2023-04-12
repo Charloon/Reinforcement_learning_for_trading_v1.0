@@ -35,7 +35,8 @@ def visualize_predict(suffix = "", code = "", tick = ""):
                     high=(df['High']/init_Close-1)*100,
                     low=(df['Low']/init_Close-1)*100,
                     close=(df['Close']/init_Close-1)*100,
-                    name=tick),
+                    name=tick,
+                    increasing_line_color= '#BFC253', decreasing_line_color= '#53C2BA'),
                 go.Scatter(x=xsell,
                     y=(ysell/init_Close-1)*100,
                     mode='markers',
@@ -57,16 +58,31 @@ def visualize_predict(suffix = "", code = "", tick = ""):
                 go.Scatter(x=df['Date'],
                     y=(df['balance']/init_balance-1)*100,
                     mode='lines',
+                    line=dict(
+                    color="#0205C7",
+                    width=3),
+                    opacity=0.5,
                     name="account balance")
             ])
     fig.update_xaxes(rangeslider_visible=False)
     fig.update_layout(title=suffix+" "+code,
                     xaxis_title="Date",
-                    yaxis_title="Relative Scale %")
+                    yaxis_title="Relative Scale %",
+                    plot_bgcolor='#F5F5F5',
+                    paper_bgcolor='rgba(0, 0, 0, 0)',
+                    font=dict(
+                    size=22,  # Set the font size here
+                    color="Black"
+                    ))
+    fig.update_yaxes(showgrid=True, 
+                    gridwidth=1,
+                    gridcolor='#CACBCB')
+    fig.update_xaxes(showgrid=False)
+
     fig.show()
 
-#visualize_predict(suffix = "train", code = "", tick = "AAPL")
-#visualize_predict(suffix = "valid", code = "", tick = "AAPL")   
+#visualize_predict(suffix = "train", tick = "AAPL")
+#visualize_predict(suffix = "valid", tick = "AAPL")   
 
 
 

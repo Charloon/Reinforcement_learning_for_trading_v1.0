@@ -241,7 +241,7 @@ class TradingEnvironment(gym.Env):
             print("DONE!!")
             # save on file recorded behavior every episode
             """try:
-                self.df_eval.to_csv('./results/result_'+str(self.iteration)+'.csv')
+                self.df_eval.to_csv('./tmp/result_'+str(self.iteration)+'.csv')
             except:
                 pass"""
 
@@ -256,7 +256,7 @@ class TradingEnvironment(gym.Env):
         print("start reset")
         # save on file recorded behavior every episode
         """try:
-            self.df_eval.to_csv('./results/result_'+str(self.iteration)+'.csv')
+            self.df_eval.to_csv('./tmp/result_'+str(self.iteration)+'.csv')
         except:
             pass"""
 
