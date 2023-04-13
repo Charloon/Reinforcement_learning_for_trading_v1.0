@@ -1,10 +1,15 @@
 # Reinforcement_learning_for_trading_v1.0
 A lean and simple implementation of Reinforcement Learning for trading stocks.
 
+## Introduction
+
 This is a personnal project to explore the possibilities of Reinforcement Learning (RL). I was curious to learn about its concept and see how it would apply on a real life use case such as trading. I could not find any really applicable open source library, notebook or github, so I started my own from scratch. 
 
-Why RL for trading? I previously played with Supervised Learning for trading, and despite providing some valuable trade signals, I quickly realized I was still facing all the typical emotional traps of trading such as FOMO, confirmation bias, revenge trade, etc ... It needed to include and automate as well the decision making process as part of the ML approach. 
-RL is basically creating a decision maker (the agent) capable, through try and error, to learn how to navigate a Makkov decision process 'policy) for the best outcome (to maximize reward), based on available information (state or observations). And therefore could be an appropriate ML approach to trading.
+Why RL for trading? Past experiences taught me that Supervised Learning for trading could provide valuable trade signals, but wasn't removing the pitfalls coming from the trader's emotions, such as FOMO, confirmation bias, revenge trade, etc ... Therefore, my ML approach to trading needed to include decision making in the process.
+
+In a nutshell, RL is creating a decision maker (the agent) capable, through try and error, to learn how to navigate a Markov decision process (policy) for the best outcome (to maximize rewards), based on available information (state or observations). Which seems to make it the right appraoch.
+
+## Description
 
 The present code is built around two main components:
 - A custom environment for trading using the Gym framework from Open AI.  
