@@ -12,10 +12,17 @@ In a nutshell, RL is creating a decision maker (the agent) capable, through try 
 ## Description
 
 The present code is built around two main components:
-- A custom environment for trading using the Gym framework from Open AI.  
-- A RL model from the Stable Baseline 3 library, also from Open AI. 
+- A custom environment for trading using the Gym framework from Open AI. The environment is responsible to receive update the account balance when it receives an action, sends back observations (like information about the price action and status of the account), and a reward.  
+- A RL model (agent) from the Stable Baseline 3 library, also from Open AI. In the present implementation, it is a recurrent PPO, which is a kind Actor-Critic algorithm that uses one LSTM network to predict the newt best action (actor) and a second to evaluate the value of actions in specific context. 
 
 ![A2C_animation3](https://user-images.githubusercontent.com/55462061/231509301-3a6ef1cc-81ec-43d2-9de2-d4be84b1a6f8.gif)
+
+The code also include two types of parameter tuning with the Optuna library:
+- For the parameter of the agent.
+- For the parameter of the environment and weigths of the reward function.
+The metrics for the tuning comes from the application to the agent to validation data. 
+
+Below are examples of the performance of the model trained in AAPL stock data on both the training and validation dataset.
 
 ![image](https://user-images.githubusercontent.com/55462061/231503942-239bedd3-2907-4fac-b678-4b83826668be.png)
 
